@@ -9,7 +9,7 @@ $testno = 1;
 my $editor = new Text::ASED;
 
 unlink "t/tmp" if ( -e "t/tmp" );
-system( "cp", "t/httpd.conf", "t/tmp" );
+system( "cp", "t/httpd.conf", "t/tmp");
 
 $outfile = eval $editor->prep( search => "MaxClients", 
 			       replace => "MAXCLIENTS");

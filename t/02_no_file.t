@@ -9,7 +9,7 @@ $testno = 1;
 
 my $editor = new Text::ASED;
 
-system( "rm",  "t/tmp" ) if ( -e "t/tmp" );
+unlink "t/tmp"  if ( -e "t/tmp" );
 system( "cp", "t/httpd.conf", "t/tmp" );
 
 $outfile = eval $editor->snr( "MaxClients", "MAXCLIENTS", "t/tmp" );
@@ -23,5 +23,5 @@ if ( $outfile ) {
 } else {
     print "not ok $testno\n";
 }
-unlink "$$" ;
+
 

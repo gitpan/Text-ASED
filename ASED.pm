@@ -1,18 +1,7 @@
 package Text::ASED;
 
-# Author : $Author: legrady $
-# Date	 : $Date: 2002/04/16 00:12:10 $
-# Version : $Revision: 1.9 $
-# Log	  : $Log: ASED.pm,v $
-# Log	  : Revision 1.9  2002/04/16 00:12:10  legrady
-# Log	  : That version generated syntax errors.
-# Log	  :
-# Log	  : Revision 1.7  2002/04/16 00:56:50  legrady
-# Log	  : Modified version line.
-# Log	  :
-# Log	  : Revision 1.4  2002/04/16 00:36:06  legrady
-# Log	  : Added cvs variables to get version and file.
-# Log	  :
+use File::Copy;
+use POSIX;;
 
 require 5.005_62;
 use strict;
@@ -22,7 +11,7 @@ use Text::Abbrev;
 use Carp;
 
 use vars qw( $VERSION );
-($VERSION = '$Revision: 1.9 $') =~ s/[^\d\.]*//g;
+($VERSION = '$Revision: 1.12 $ ') =~ s/[^\d\.]*//g;
 
 #
 sub true ()	{ 1; }
@@ -104,6 +93,7 @@ sub reuse {
     $self->{used} = false;
     delete $self->{eval};
 }
+
 sub prep {
     my $self = shift;
 
@@ -371,8 +361,15 @@ sub edit {
 	    }
 	}
     }
-    unless ( $newargs{outfile} ) {
-	$newargs{outfile} = "/tmp/$$";
+
+    #	generate a tempfile name, mark flag for copying back onto original.
+    unless ( $newargs{outfile} ) { 
+	my $name;
+	do {
+	    $name = POSIX::tmpnam();
+	} until ( ! -e $name );
+	
+	$newargs{outfile} = $name;
 	$fileflag = true;
     }
 
@@ -391,12 +388,12 @@ sub edit {
 	$self->{eval} .= $code;
 	$self->{eval} .= convert_end_overhead( @_ );
     }
-#    print "Running:\n$self->{eval}\n";
+    print "Running:\n$self->{eval}\n" if ( defined $ENV{DEBUG} );
     unless ( defined eval $self->{eval} ) {
 	die( "$@" );
     }
     $self->{used} = true;
-    rename( "/tmp/$$", $newargs{infile} ) if $fileflag;
+    copy( $newargs{outfile}, $newargs{infile} ) if $fileflag;
     1;
 }
 

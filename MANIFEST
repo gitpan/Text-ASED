@@ -5,7 +5,6 @@ Makefile.PL
 README
 TODO
 t/httpd.conf
-t/00.t
 t/01_use.t
 t/02_no_file.t
 t/03_snr.t

@@ -1,6 +1,22 @@
 Revision history for Perl extension Text::ASED.
 
-0.01  Mon Apr  8 23:36:59 2002
-	- original version; created by h2xs 1.20 with options
-		-AX -n Text::ASED
+# Log : Revision 1.11  2002/04/17 03:09:05  legrady
+# Log : Modified ASED.pm to use tmpnam instead of hardcoded /tmp/$$ 
+# Log : for temp file.
+# Log :
+# Log : Revision 1.10  2002/04/17 03:00:52  legrady
+# Log : Deleted file 00.t; replaced rename() with File::Copy::copy().
+# Log :
+# Log : Revision 1.9  2002/04/16 00:12:10  legrady
+# Log : That version generated syntax errors.
+# Log :
+# Log : Revision 1.7  2002/04/16 00:56:50  legrady
+# Log : Modified version line.
+# Log :
+# Log : Revision 1.4  2002/04/16 00:36:06  legrady
+# Log : Added cvs variables to get version and file.
+# Log :
+# Log : 0.01  Mon Apr  8 23:36:59 200
+# Log :       - original version; created by h2xs 1.20 with options
+# Log :       -AX -n Text::ASED
 

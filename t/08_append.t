@@ -1,8 +1,5 @@
 #	-*- perl -*-
 
-# Change 1..1 below to 1..last_test_to_print .
-# (It may become useful if the test is moved to ./t subdirectory.)
-
 BEGIN { $| = 1; print "1..4\n"; }
 use Text::ASED;
 use Data::Dumper;
@@ -11,7 +8,7 @@ $testno = 1;
 
 my $editor = new Text::ASED;
 
-system( "rm",  "t/tmp" ) if ( -e "t/tmp" );
+unlink "t/tmp"  if ( -e "t/tmp" );
 system( "cp", "t/httpd.conf", "t/tmp" );
 
 $outfile = eval $editor->prep( match => "^TransferLog",
