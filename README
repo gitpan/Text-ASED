@@ -1,0 +1,53 @@
+INTRODUCTION
+
+This is the README file for the PERL module Text::ASED
+
+Text::ASED is avaiable for download at www.CPAN.org under the Text
+category or under the CPAN author ID: TDL
+
+I use Perl version 5.005.62; Text::ASED should work with earlier versions, but I haven't tried it, so I don't know.
+
+All files contained in this installation are Copyright (c) 2002 Tom
+Legrady. All rights reserved. This library is free software; you may
+redistribute it and/or modify it under the same terms as Perl itself.
+
+WHAT IS Text::ASED?
+
+Text::ASED provides a different interface to the standard Perl regexp
+commands. There is nothing you can do using Text::ASED which you
+cannot do using pure Perl. Quite the contrary, there are some things
+which are difficult or impossible to achieve using text::ASED, though
+over time I hope to extend what is possible.
+
+Instead, Text::ASED makes it easier to encapsulate and abstract the
+file editing components of a script, simplifying the process of
+declaring the changes to perform in a configuration section at the top
+of a script or in a separate file. This also assists localization and
+internationalization, since the code itself is unchanged, only the
+configuration section or the external file is modified. 
+
+-----------------------------------------------------------------------------
+Any questions or comments (Please send your feeback) should be addressed to -
+Tom Legrady <tdl@cpan.org>                                             -
+-----------------------------------------------------------------------------
+
+
+INSTALLATION
+
+To install the library, run these commands:
+
+   perl Makefile.PL
+   make
+   make test
+   make install
+
+After installation, you should be able to see the brief documentation
+by typing "man Text::ASED" You will now be able to access the
+Text::ASED methods by adding "use Text::ASED" at the beginning of your
+PERL program.
+
+DOCUMENTATION
+
+POD documentation is provided in the file Text::ASED.pm. After installation, this becomes available as a man page, text::ASED.
+
+Examples of use are included in the test files, under the t/ subdirectory.

@@ -1,0 +1,10 @@
+Things to do:
+
+* Extend edit() to add ability to process strings, not just files.
+* Extend prep() to read edit sets from files.
+* Add function to save edit sets to a file. (i.e. Data::Dump )
+* prep() should return information which can locate edit set components.
+* Add method to delete edit set components using return value from prep().
+* Obtain string which would be eval()ed by edit(), to save or export it.
+* Invoke script as separate process to enable use of 'inplace' editing.
+* Provide reverse contexts, which match anywhere except within the context.

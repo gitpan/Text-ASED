@@ -1,0 +1,6 @@
+Revision history for Perl extension Text::ASED.
+
+0.01  Mon Apr  8 23:36:59 2002
+	- original version; created by h2xs 1.20 with options
+		-AX -n Text::ASED
+
